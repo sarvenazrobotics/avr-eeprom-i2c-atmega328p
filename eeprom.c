@@ -9,6 +9,7 @@ char eeprom_read(unsigned int address) ;
 void main(void)
 {
     i2c_init();
+    eeprom_write(0x29,5);
 while (1)
     {
     // Please write your application code here
@@ -43,5 +44,6 @@ char eeprom_read(unsigned int address)
     i2c_write(0xA1);//EEPROM ADDRESS+READ
     tmp=i2c_read(0);
     i2c_stop();
+    return tmp;
     
     };
