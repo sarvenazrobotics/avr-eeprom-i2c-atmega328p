@@ -26,7 +26,9 @@ void eeprom_write(char data,unsigned int address)
 
 };
 char eeprom_read(void)
-{     //according to datasheet , it should start with dummy write
+{     
+        char tmp;
+    //according to datasheet , it should start with dummy write
       i2c_start(); 
       i2c_write(0x0A); //extracted of datasheet eeprom address+write
       i2c_write(address>>8);//8bits high
@@ -37,7 +39,10 @@ char eeprom_read(void)
 
      //read
     i2c_start(address>>8);
-    i2c_read(0xA1);//EEPROM ADDRESS+READ
+    i2c_write(0xA1);//EEPROM ADDRESS+READ
+    tmp=i2c_read(0);
+    i2c_stop();
+    
     
 
 
