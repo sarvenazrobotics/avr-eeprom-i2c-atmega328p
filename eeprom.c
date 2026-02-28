@@ -1,7 +1,8 @@
 #include <io.h>
 #include <i2c.h>
 #include <delay.h>
-
+char data;
+unsigned int address;
 void eeprom_write(char data,unsigned int address);
 char eeprom_read(unsigned int address) ;
 
@@ -25,7 +26,7 @@ void eeprom_write(char data,unsigned int address)
   i2c_stop();
 
 };
-char eeprom_read(void)
+char eeprom_read(unsigned int address)
 {     
         char tmp;
     //according to datasheet , it should start with dummy write
@@ -38,12 +39,9 @@ char eeprom_read(void)
 
 
      //read
-    i2c_start(address>>8);
+    i2c_start();
     i2c_write(0xA1);//EEPROM ADDRESS+READ
     tmp=i2c_read(0);
     i2c_stop();
     
-    
-
-
-};
+    };
