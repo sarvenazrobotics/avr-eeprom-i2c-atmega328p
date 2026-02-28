@@ -36,8 +36,8 @@ char eeprom_read(void)
 
 
      //read
-    i2c_read(address>>8);
-    i2c_read(address);
+    i2c_start(address>>8);
+    i2c_read(0xA1);//EEPROM ADDRESS+READ
     
 
 
