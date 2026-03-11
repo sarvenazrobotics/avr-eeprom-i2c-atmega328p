@@ -52,3 +52,16 @@ It provides a simple example of low-level I²C communication including:
 The program communicates with an external EEPROM using the I²C protocol. First, the microcontroller initializes the I²C interface to enable communication with the EEPROM device. When writing data, the program sends a start condition, followed by the EEPROM device address in write mode, then transmits the target memory address and the data byte to be stored. After the data is sent, a stop condition is issued and the system waits briefly to allow the EEPROM to complete its internal write cycle.
 
 To read data, the program first performs a dummy write to specify the memory address from which data should be read. It then issues a repeated start condition and sends the EEPROM device address in read mode. The EEPROM responds by transmitting the stored data byte, which the microcontroller reads and stores in a variable before sending a stop condition to end the communication. This sequence allows the program to retrieve the previously stored value from the specified EEPROM address.
+
+
+## Usage
+
+- Connect the I²C EEPROM to the microcontroller using the SDA and SCL lines, along with proper pull-up resistors.
+
+- Initialize the I²C peripheral in the program using i2c_init().
+
+- Use the eeprom_write(data, address) function to store a byte of data at a specific EEPROM memory location.
+
+- Use the eeprom_read(address) function to retrieve the stored data from the specified memory address.
+
+- The returned value from the read function can be stored in a variable for further processing or verification.
