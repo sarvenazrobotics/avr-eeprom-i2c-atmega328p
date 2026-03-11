@@ -31,3 +31,20 @@ It provides a simple example of low-level I²C communication including:
 - Data write and read operations
 
 - Write cycle delay handling
+
+## Features
+- I²C communication initialization
+
+- Single-byte EEPROM write operation
+
+- Single-byte EEPROM read operation
+
+- Memory address handling for EEPROM access
+
+- Implementation of I²C start, stop, and data transfer sequences
+
+- Write-cycle delay to ensure EEPROM data is stored correctly
+
+- Simple modular functions for EEPROM read and write operations
+
+- Suitable as a basic template for embedded I²C memory interfacing
