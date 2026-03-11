@@ -65,3 +65,14 @@ To read data, the program first performs a dummy write to specify the memory add
 - Use the eeprom_read(address) function to retrieve the stored data from the specified memory address.
 
 - The returned value from the read function can be stored in a variable for further processing or verification.
+
+Example:
+  ```c
+  i2c_init();
+eeprom_write(0x29, 5);
+char value = eeprom_read(5);
+```
+
+## Summary
+
+This project provides a simple implementation of EEPROM communication using the I²C protocol in Embedded C. It demonstrates how a microcontroller can write data to and read data from an external memory device by following standard I²C communication sequences. The code serves as a basic reference for learning EEPROM interfacing and can be extended for applications such as data logging, configuration storage, or non-volatile memory management in embedded systems.
